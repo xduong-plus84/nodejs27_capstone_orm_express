@@ -1,0 +1,669 @@
+{
+	"info": {
+		"_postman_id": "f366ed3d-a02b-45f4-8572-17840fe7a6b8",
+		"name": "nodejs27_capstone_orm_expressjs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23041754"
+	},
+	"item": [
+		{
+			"name": "hinh_anh",
+			"item": [
+				{
+					"name": "upload_hinh_anh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/asus/Desktop/hinh_anh_demo/hinh09.jpg"
+								},
+								{
+									"key": "ten_hinh",
+									"value": "hinh trai tim",
+									"type": "text"
+								},
+								{
+									"key": "mo_ta",
+									"value": "motahinh13",
+									"type": "text"
+								},
+								{
+									"key": "nguoi_dung_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dang_nhap_dang_ky",
+			"item": [
+				{
+					"name": "dang_ky",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"5@gmail.com\",\r\n    \"mat_khau\":\"1\",\r\n    \"ho_ten\":\"nguoi 5\",\r\n    \"tuoi\":12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/quan-ly-nguoi-dung/dang-ky",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"quan-ly-nguoi-dung",
+								"dang-ky"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dang_nhap",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"1@gmail.com\",\r\n    \"mat_khau\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/quan-ly-nguoi-dung/dang-nhap",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"quan-ly-nguoi-dung",
+								"dang-nhap"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang_chu",
+			"item": [
+				{
+					"name": "lay_danh_sach_anh",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/lay-tat-ca-hinh-anh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"lay-tat-ca-hinh-anh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tim_kiem_danh_sach_theo_ten",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/tim-hinh/?tenHinh=hinh ng",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"tim-hinh",
+								""
+							],
+							"query": [
+								{
+									"key": "tenHinh",
+									"value": "hinh ng"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang_chi_tiet",
+			"item": [
+				{
+					"name": "lay_thong_tin_anh_va_nguoi_tao_anh_bang_id_anh",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/chi-tiet-hinh/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"chi-tiet-hinh",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "kiem_tra_hinh_da_luu",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nguoi_dung_id\": 1,\r\n  \"hinh_anh_id\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/luu-anh/save-or-unsave",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"luu-anh",
+								"save-or-unsave"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "luu_hinh_anh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nguoi_dung_id\": 1,\r\n  \"hinh_anh_id\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/luu-anh/luu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"luu-anh",
+								"luu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bo_luu_anh",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nguoi_dung_id\": 8,\r\n  \"hinh_anh_id\": 26\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/luu-anh/bo-luu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"luu-anh",
+								"bo-luu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "luu_thong_tin_binh_luan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nguoi_dung_id\": 9,\r\n  \"hinh_anh_id\": 26,\r\n  \"noi_dung\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/binh-luan/tao-binh-luan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"binh-luan",
+								"tao-binh-luan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lay_thong_tin_binh_luan_theo_id_ảnh",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/binh-luan/lay-binh-luan-theo-anh/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"binh-luan",
+								"lay-binh-luan-theo-anh",
+								"20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang_quan_ly_anh",
+			"item": [
+				{
+					"name": "lay_thong_tin_user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nguoi_dung_id\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/quan-ly-nguoi-dung/thong-tin-nguoi-dung",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"quan-ly-nguoi-dung",
+								"thong-tin-nguoi-dung"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lay_danh_sach_anh_da_luu_theo_user_id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nguoi_dung_id\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/luu-anh/hinh-anh-da-luu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"luu-anh",
+								"hinh-anh-da-luu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lay_danh_sach_anh_da_tao_theo_user_id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nguoi_dung_id\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/hinh-da-tao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"hinh-da-tao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "xoa_anh_da_tao_theo_id_anh",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/xoa-hinh-anh/24",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"xoa-hinh-anh",
+								"24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang_them_anh",
+			"item": [
+				{
+					"name": "them_mot_anh_cua_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/asus/Desktop/hinh_anh_demo/hinh12.jpg"
+								},
+								{
+									"key": "ten_hinh",
+									"value": "hinh trai tim",
+									"type": "text"
+								},
+								{
+									"key": "mo_ta",
+									"value": "motahinh13",
+									"type": "text"
+								},
+								{
+									"key": "nguoi_dung_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang_chinh_sua_thong_tin_ca_nhan",
+			"item": [
+				{
+					"name": "update_thong_tin_ca_nhan",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "thay_doi_anh_dai_dien",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nguoi_dung_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/quan-ly-nguoi-dung/update-thong-tin-nguoi-dung/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"quan-ly-nguoi-dung",
+								"update-thong-tin-nguoi-dung",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload_hinh_anh Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/asus/Desktop/hinh_anh_demo/hinh09.jpg"
+								},
+								{
+									"key": "ten_hinh",
+									"value": "hinh trai tim",
+									"type": "text"
+								},
+								{
+									"key": "mo_ta",
+									"value": "motahinh13",
+									"type": "text"
+								},
+								{
+									"key": "nguoi_dung_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hinh-anh/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hinh-anh",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hello world",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
